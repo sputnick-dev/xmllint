@@ -2,6 +2,8 @@
 
 The main goal is to 'hack' around [this bug](https://bugzilla.gnome.org/show_bug.cgi?id=740827)
 
+Require `bash` and... `xmllint`
+
 ### Example with wrapper :
 
 ```bash
