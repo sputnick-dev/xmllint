@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 2018-03-23 12:49:27.0 +0100 / Gilles Quenot <gilles.quenot@sputnick.fr>
+# 2018-04-01 00:34:25.0 +0200 / Gilles Quenot <gilles.quenot@sputnick.fr>
 # wrapper script to have newline delimited output on Xpath querys
 
 args=( "$@" )
@@ -9,19 +9,15 @@ if [[ $@ == *--xpath* ]]; then
     for ((i=0; i<${#args}; i++)); do
         if [[ ${args[i]} == --xpath ]]; then
             xpath="${args[i+1]}"
-            delete=("${args[i+1]}" "${args[i]}")
-        elif [[ -e ${args[i]} || ${args[i]} == file://* || ${args[i]} == http*://* || ${args[i]} == - ]]; then
-            file="${args[i]}"
-            delete=("${args[i]}")
-            break
+            unset args[i+1]
+            unset args[i]
         fi
     done
     if [[ $file == - ]]; then
         /usr/bin/xmllint "$@"
     else
-        /usr/bin/xmllint "$args" --shell "${file}" <<< "cat $xpath" | sed '1d;$d;s/^ ------- *$//;/^$/d; s/^ *//'
+        /usr/bin/xmllint "${args[@]}" --shell <<< "cat $xpath" | sed '1d;$d;s/^ ------- *$//;/^$/d; s/^ *//'
     fi
 else
     /usr/bin/xmllint "$@"
 fi
-
