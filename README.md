@@ -5,7 +5,7 @@
  - https://mail.gnome.org/archives/xml/2018-March/msg00008.html
  - https://bugzilla.gnome.org/show_bug.cgi?id=740827
 
-## xmllint is a simple wrapper over [xmllint](http://xmlsoft.org/) from `libxml2`
+## xmllint <s>is</s> was a simple wrapper over [xmllint](http://xmlsoft.org/) from `libxml2`
 
 The main goal is to 'hack' around [this bug](https://bugzilla.gnome.org/show_bug.cgi?id=740827)
 
