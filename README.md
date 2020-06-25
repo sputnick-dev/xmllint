@@ -1,4 +1,9 @@
-## edit 20180923: bug fixed upstream, check https://gitlab.gnome.org/GNOME/libxml2/commit/da35eeae5b92b88d8ebdb64b4b327ac1c2cf1bce
+## edit 20180923: bug fixed upstream in `libxml2-utils` v2.9.9, check 
+
+ - https://gitlab.gnome.org/GNOME/libxml2/commit/da35eeae5b92b88d8ebdb64b4b327ac1c2cf1bce
+ - discussion: https://gitlab.gnome.org/GNOME/libxml2/-/merge_requests/8
+ - https://mail.gnome.org/archives/xml/2018-March/msg00008.html
+ - https://bugzilla.gnome.org/show_bug.cgi?id=740827
 
 ## xmllint is a simple wrapper over [xmllint](http://xmlsoft.org/) from `libxml2`
 
