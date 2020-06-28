@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# 2020-06-29 01:05:01.0 +0200 / Gilles Quenot <gilles.quenot@sputnick.fr>
+# 2020-06-29 01:21:37.0 +0200 / Gilles Quenot <gilles.quenot@sputnick.fr>
 
 # wrapper script to
 # - have newline delimited output on Xpath querys
-# - implements --xpath old very old releases
+# - implements --xpath on very old releases
 
 /usr/bin/xmllint --xpath &>/dev/null
 implements_xpath=$?
