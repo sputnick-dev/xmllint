@@ -1,8 +1,13 @@
 #!/bin/bash
 
-# 2018-04-01 16:43:50.0 +0200 / Gilles Quenot <gilles.quenot@sputnick.fr>
+# 2020-06-29 01:01:11.0 +0200 / Gilles Quenot <gilles.quenot@sputnick.fr>
 
-# wrapper script to have newline delimited output on Xpath querys
+# wrapper script to
+# - have newline delimited output on Xpath querys
+# - implements --xpath old very old releases
+
+/usr/bin/xmllint --xpath &>/dev/null
+implements_xpath=$?
 
 args=( "$@" )
 if [[ $@ == *--xpath* ]]; then
@@ -15,6 +20,10 @@ if [[ $@ == *--xpath* ]]; then
             break
         fi
     done
+    if ((implements_xpath != 0)); then
+        exec /usr/bin/xmllint "${args[@]}" --shell <<< "cat $xpath" | sed '1d;$d;s/^ ------- *$//;/^$/d'
+        exit $?
+    fi
     if [[ $file == - || $file == /dev/stdin || $xpath == / || $xpath == string\(* ]]; then
         exec /usr/bin/xmllint "$@"
     else
