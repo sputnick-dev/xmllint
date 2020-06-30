@@ -9,7 +9,7 @@
 /usr/bin/xmllint --xpath &>/dev/null
 implements_xpath=$?
 
-newlines_delimited_xmllint_version=20910
+newlines_delimited_xmllint_version=20909
 current_version=$(xmllint --version |& awk 'NR==1{print $NF;exit}')
 
 args=( "$@" )
@@ -23,7 +23,7 @@ if [[ $@ == *--xpath* ]]; then
             break
         fi
     done
-    if [[ ($implements_xpath==0 && $current_version>=20910) || $file == - || $file == /dev/stdin || $xpath == / || $xpath == string\(* ]]
+    if [[ ($implements_xpath==0 && $current_version>=20909) || $file == - || $file == /dev/stdin || $xpath == / || $xpath == string\(* ]]
     then
         exec /usr/bin/xmllint "$@"
     else
