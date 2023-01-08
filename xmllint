@@ -18,9 +18,8 @@ if [[ $@ == *--xpath* ]]; then
     for ((i=0; i<${#args}; i++)); do
         if [[ ${args[i]} == --xpath ]]; then
             xpath="${args[i+1]}"
-            unset args[i+1]
-            unset args[i]
-            break
+        elif [[ -e ${args[i]} || ${args[i]} == file://* || ${args[i]} == http*://* || ${args[i]} == - ]]; then
+            file="${args[i]}"
         fi
     done
     if [[ ($implements_xpath==0 && $current_version>=20909) || $file == - || $file == /dev/stdin || $xpath == / || $xpath == string\(* ]]
