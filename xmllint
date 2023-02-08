@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 2023-01-09 04:52:13.0 +0700 / sputnick <gilles@botify.com>
+# 2023-01-09 04:52:13.0 +0700 / sputnick <gilles DOT quenot AT sputnick DOT fr>
 
 # wrapper script to
 # - have newline delimited output on Xpath querys
